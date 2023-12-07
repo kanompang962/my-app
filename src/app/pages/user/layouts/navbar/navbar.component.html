@@ -1,0 +1,21 @@
+<div class="navbar">
+    <div class="navbar-warp">
+        <div class="group-left">
+            <div class="logo">
+                ANTON
+            </div>
+            <div class="menu-bar">
+                <div *ngFor="let item of navbars">
+                    <a [routerLink]="item.link" routerLinkActive="active" class="menu-item">{{item.title}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="group-right">
+            <div class="setting-bar">
+                <div *ngFor="let item of settings">
+                    <mat-icon class="setting-item">{{item.icon}}</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
