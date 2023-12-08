@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { StateCartService } from 'src/app/services/state-cart.service';
 
 
 @Component({
@@ -10,22 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   title = "navbar"
- 
-  menu_list = [
-    {icon:'', title:'Home'},
-    {icon:'', title:'About'},
-    {icon:'', title:'Education'},
-    {icon:'', title:'Me'},
-  ]
-
   settings:any;
   navbars:any;
+  cart_amount = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private stateCartService: StateCartService,
+    ) {}
 
   ngOnInit() {
    this.fetchSettingsMenu();
    this.fetchNavbarsMenu();
+   this.getCartAmount();
   }
 
   fetchSettingsMenu(){
@@ -33,9 +31,16 @@ export class NavbarComponent implements OnInit {
       this.settings = data;
     });
   }
+  
   fetchNavbarsMenu(){
     this.http.get('assets/data/navbars.json').subscribe(data => {
       this.navbars = data;
+    });
+  }
+
+  getCartAmount(){
+    this.stateCartService.currentState$.subscribe((state) => {
+      this.cart_amount = state;
     });
   }
   

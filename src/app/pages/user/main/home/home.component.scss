@@ -75,11 +75,12 @@
                     width: 60%;
     
                     button {
+                        font-size: 14px;
                         border: none;
                         background: #000;
                         color: #fff;
                         padding: 10px;
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
                         cursor: pointer;
                     }
         
@@ -88,7 +89,7 @@
                     }
         
                     .price-details {
-                        margin-top: 20px;
+                        margin-top: 10px;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
@@ -99,6 +100,7 @@
                         }
     
                         .btn-buy {
+                            font-size: 14px;
                             padding: 10px;
                             background: #cbcaca;
                         }

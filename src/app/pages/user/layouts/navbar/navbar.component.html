@@ -12,8 +12,9 @@
         </div>
         <div class="group-right">
             <div class="setting-bar">
-                <div *ngFor="let item of settings">
+                <div class="group-icon" *ngFor="let item of settings">
                     <mat-icon class="setting-item">{{item.icon}}</mat-icon>
+                    <div class="amount" *ngIf="item.icon === 'shopping_cart' && cart_amount > 0">{{cart_amount}}</div>
                 </div>
             </div>
         </div>
